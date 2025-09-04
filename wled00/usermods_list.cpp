@@ -11,6 +11,10 @@
  */
 //#include "../usermods/EXAMPLE_v2/usermod_v2_example.h"
 
+#ifdef USERMOD_KNX
+  #include "../usermods/KNX/usermod_knx.h"
+#endif
+
 #ifdef USERMOD_BATTERY
   #include "../usermods/Battery/usermod_v2_Battery.h"
 #endif
@@ -250,6 +254,10 @@ void registerUsermods()
    * \/ \/ \/
    */
   //UsermodManager::add(new MyExampleUsermod());
+
+  #ifdef USERMOD_KNX
+  UsermodManager::add(new KnxUsermod());
+  #endif
 
   #ifdef USERMOD_BATTERY
   UsermodManager::add(new UsermodBattery());
